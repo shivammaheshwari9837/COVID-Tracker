@@ -16,6 +16,8 @@
 		6AE6199C2A2B66C300FFFCC7 /* COVID_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE6199B2A2B66C300FFFCC7 /* COVID_TrackerTests.swift */; };
 		6AE619A62A2B66C300FFFCC7 /* COVID_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE619A52A2B66C300FFFCC7 /* COVID_TrackerUITests.swift */; };
 		6AE619A82A2B66C300FFFCC7 /* COVID_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE619A72A2B66C300FFFCC7 /* COVID_TrackerUITestsLaunchTests.swift */; };
+		6AE619B52A2B69CA00FFFCC7 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE619B42A2B69CA00FFFCC7 /* FilterViewController.swift */; };
+		6AE619B72A2B6ADE00FFFCC7 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE619B62A2B6ADE00FFFCC7 /* APICaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		6AE619A12A2B66C300FFFCC7 /* COVID TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVID TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE619A52A2B66C300FFFCC7 /* COVID_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_TrackerUITests.swift; sourceTree = "<group>"; };
 		6AE619A72A2B66C300FFFCC7 /* COVID_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6AE619B42A2B69CA00FFFCC7 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		6AE619B62A2B6ADE00FFFCC7 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				6AE619842A2B66C200FFFCC7 /* AppDelegate.swift */,
 				6AE619862A2B66C200FFFCC7 /* SceneDelegate.swift */,
 				6AE619882A2B66C200FFFCC7 /* ViewController.swift */,
+				6AE619B42A2B69CA00FFFCC7 /* FilterViewController.swift */,
+				6AE619B62A2B6ADE00FFFCC7 /* APICaller.swift */,
 				6AE6198A2A2B66C200FFFCC7 /* Main.storyboard */,
 				6AE6198D2A2B66C300FFFCC7 /* Assets.xcassets */,
 				6AE6198F2A2B66C300FFFCC7 /* LaunchScreen.storyboard */,
@@ -260,6 +266,8 @@
 			files = (
 				6AE619892A2B66C200FFFCC7 /* ViewController.swift in Sources */,
 				6AE619852A2B66C200FFFCC7 /* AppDelegate.swift in Sources */,
+				6AE619B52A2B69CA00FFFCC7 /* FilterViewController.swift in Sources */,
+				6AE619B72A2B6ADE00FFFCC7 /* APICaller.swift in Sources */,
 				6AE619872A2B66C200FFFCC7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
