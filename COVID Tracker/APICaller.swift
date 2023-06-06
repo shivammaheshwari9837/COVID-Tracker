@@ -7,6 +7,25 @@
 
 import Foundation
 
+extension DateFormatter {
+    static let dayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd"
+        formatter.locale = .current
+        formatter.timeZone = .current
+        return formatter
+    }()
+    
+    static let prettyFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.locale = .current
+        formatter.timeZone = .current
+        return formatter
+    }()
+    
+}
+
 class APICaller {
     static let shared = APICaller()
     
@@ -30,7 +49,7 @@ class APICaller {
             case .national:
                 urlString = "https://api.covidtracking.com/v2/us/daily.json"
             case .state(let state):
-                urlString = "https://api.covidtracking.com/v2/states/\(state.stateCode?.lowercased())/daily.json"
+                urlString = "https://api.covidtracking.com/v2/states/\(state.stateCode?.lowercased() ?? "")/daily.json"
             }
             
             guard let url = URL(string: urlString) else { return }
@@ -42,7 +61,18 @@ class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(CovidDataResponse.self, from: data)
-                    print(result.data?.count)
+                    
+                    let models = result.data?.compactMap({ model -> DayData? in
+                        guard let date = DateFormatter.dayFormatter.date(from: model.date ?? ""),
+                              let count = model.cases?.total?.value else {
+                            return nil
+                        }
+                        return DayData.init(date: date,
+                                            count: count)
+                    })
+                    
+                    completion(.success(models ?? []))
+                    
                 }
                 catch {
                     completion(.failure(error))
@@ -50,10 +80,10 @@ class APICaller {
             }
             
             task.resume()
-
             
-        
-    }
+            
+            
+        }
     
     public func getStateList(
         completion: @escaping (Result<[State], Error>) -> Void) {
@@ -75,42 +105,5 @@ class APICaller {
             }
             
             task.resume()
-    }
-}
-
-
-struct StateListResponse: Codable {
-    let data: [State]?
-}
-
-struct State: Codable {
-    let name: String?
-    let stateCode: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case stateCode = "state_code"
-    }
-}
-
-struct CovidDataResponse: Codable {
-    let data: [CovidDataData]?
-}
-
-struct CovidDataData: Codable {
-    let cases: CovidCases?
-    let date: String?
-}
-
-struct CovidCases: Codable {
-    let total: TotalCases?
-}
-
-struct TotalCases: Codable {
-    let value: Int?
-}
-
-struct DayData {
-    let date: Date?
-    let count: Int?
+        }
 }
