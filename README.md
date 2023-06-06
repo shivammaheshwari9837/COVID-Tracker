@@ -6,6 +6,7 @@ A comprehensive COVID-19 monitoring application that provides real-time data on 
 - Effortlessly generate customized charts displaying comprehensive casualty details based on your specific criteria.
 
 ## Video
+https://github.com/shivammaheshwari9837/COVID-Tracker/assets/56878460/90f36a84-baec-46ca-89a8-00d658cb3a26
 
 ## Requirments
 - iOS 16.0+
